@@ -1,0 +1,19 @@
+uuid: 03745de9-c6af-4319-8ffe-38734d4f941d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_name
+    - paragraphs.paragraphs_type.speaker
+id: paragraph.speaker.field_name
+field_name: field_name
+entity_type: paragraph
+bundle: speaker
+label: Name
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

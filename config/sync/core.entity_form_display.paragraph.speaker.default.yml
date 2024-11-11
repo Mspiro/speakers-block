@@ -1,0 +1,89 @@
+uuid: 14df4d8f-fa4a-4e9c-92f6-ad75557deaf9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.speaker.field_bio
+    - field.field.paragraph.speaker.field_designation
+    - field.field.paragraph.speaker.field_name
+    - field.field.paragraph.speaker.field_organization
+    - field.field.paragraph.speaker.field_photo
+    - field.field.paragraph.speaker.field_social_drupal
+    - field.field.paragraph.speaker.field_social_linkedin
+    - field.field.paragraph.speaker.field_social_x
+    - paragraphs.paragraphs_type.speaker
+  module:
+    - link
+    - media_library
+    - text
+id: paragraph.speaker.default
+targetEntityType: paragraph
+bundle: speaker
+mode: default
+content:
+  field_bio:
+    type: text_textarea
+    weight: 4
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_designation:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_organization:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_photo:
+    type: media_library_widget
+    weight: 1
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_social_drupal:
+    type: link_default
+    weight: 6
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_social_linkedin:
+    type: link_default
+    weight: 7
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_social_x:
+    type: link_default
+    weight: 5
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

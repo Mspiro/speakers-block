@@ -1,0 +1,22 @@
+uuid: c55a3240-f31a-481c-9fe7-aacd3c9b8eeb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_bio
+    - paragraphs.paragraphs_type.speaker
+  module:
+    - text
+id: paragraph.speaker.field_bio
+field_name: field_bio
+entity_type: paragraph
+bundle: speaker
+label: Bio
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

@@ -1,0 +1,10 @@
+uuid: 3c6418c6-2cd4-42bf-9e61-ff4b4b6af397
+langcode: en
+status: true
+dependencies: {  }
+id: speaker
+label: Speaker
+weight: null
+opened: true
+image_path: ''
+image_alt: ''

@@ -1,0 +1,65 @@
+uuid: e88c57a2-5029-483c-be0f-043269a88d4b
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.speakers
+    - field.field.block_content.speakers.body
+    - field.field.block_content.speakers.field_cta
+    - field.field.block_content.speakers.field_footer_text
+    - field.field.block_content.speakers.field_speakers
+    - field.field.block_content.speakers.field_title
+  module:
+    - entity_reference_revisions
+    - link
+    - text
+id: block_content.speakers.default
+targetEntityType: block_content
+bundle: speakers
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_cta:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_footer_text:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_speakers:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

@@ -1,0 +1,47 @@
+name: Speaker
+description: A component to display speaker information including name, designation, bio, and organization.
+props:
+  type: object
+  required:
+    - name
+    - photo
+    - designation
+    - organization
+    - bio
+    - socialx
+    - socialdrupal
+    - sociallinkedin
+  properties:
+    name:
+      type: string
+      title: Name
+      description: The name of the speaker.
+    photo:
+      type: string
+      format: uri
+      title: Profile Image
+      description: A URL to the speaker's profile image.
+    designation:
+      type: string
+      title: Designation
+      description: The designation of the speaker.
+    bio:
+      type: string
+      title: Bio
+      description: A short biography of the speaker.
+    organization:
+      type: string
+      title: Organization
+      description: The organization the speaker is associated with.
+    socialx:
+      type: string
+      title: Social X
+      description: Social link
+    socialdrupal:
+      type: string
+      title: Social Drupal
+      description: Social link
+    sociallinkedin:
+      type: string
+      title: Social Linkedin
+      description: Social link

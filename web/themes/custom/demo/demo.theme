@@ -1,0 +1,67 @@
+<?php
+
+/**
+ * @file
+ * Functions to support theming in the Demo theme.
+ */
+
+use Drupal\user\Entity\User;
+use Drupal\user\RoleInterface;
+
+/**
+ * Implements template_preprocess_page().
+ */
+function demo_preprocess_page(&$variables) {
+  // Load the library specific for Admin users.
+  if (User::load(\Drupal::currentUser()->id())->hasRole(RoleInterface::AUTHENTICATED_ID)) {
+    $variables['#attached']['library'][] = 'demo/admin';
+  }
+}
+
+/**
+ * Implements template_preprocess_field().
+ */
+function demo_preprocess_field(&$variables) {
+  // Add additional values for rendering specific classes.
+  $entity_type = $variables['element']['#entity_type'];
+  if ($entity_type) {
+    $field_name = $variables['element']['#field_name'];
+    $variables['field_name_entity_cls'] = str_replace('_', '-', str_replace('field_', '', $field_name)) . '-' . str_replace('_', '-', $entity_type);
+  }
+}
+
+
+function demo_preprocess_block(&$variables) {
+  if ($variables['elements']['#base_plugin_id'] === 'speakers_block') {
+    $variables['#attached']['library'][] = 'demo/speakers-block';
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for speakers-block templates.
+ */
+function demo_preprocess_speakers_block(&$variables) {
+  // If you need to preprocess the speaker data
+  if (!empty($variables['speaker'])) {
+    foreach ($variables['speaker'] as &$item) {
+      if (isset($item['#paragraph'])) {
+        $paragraph = $item['#paragraph'];
+        
+        // Load the media entity if it exists
+        if ($paragraph->hasField('field_photo') && !$paragraph->field_photo->isEmpty()) {
+          $media = $paragraph->field_photo->entity;
+          if ($media) {
+            // Get the image entity
+            $image = $media->field_media_image->entity;
+            if ($image) {
+              // Add the image URL to the variables
+              $item['image_url'] = file_url_transform_relative(
+                file_create_url($image->getFileUri())
+              );
+            }
+          }
+        }
+      }
+    }
+  }
+}

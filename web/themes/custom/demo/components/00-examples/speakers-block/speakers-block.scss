@@ -1,0 +1,206 @@
+.speakers-block {
+  box-sizing: border-box;
+  padding-bottom: 100px;
+  padding-top: 100px;
+
+  .speakers-carousel {
+    .splide__arrows {
+      .splide__arrow--prev {
+        left: -4em;
+      }
+
+      .splide__arrow--next {
+        right: -4em;
+      }
+    }
+
+    .splide__track {
+      padding: 30px;
+
+      .splide__list {
+        .splide__slide {
+          .speaker-card {
+            &__info {
+              display: flex;
+              align-items: center;
+              flex-direction: column;
+              padding: 36px 21px;
+              font-family: Metropolis;
+              border-radius: 10px;
+              box-shadow: 4px 10px 24px 0 #0000001a;
+              cursor: pointer;
+
+              .speaker-card__photo {
+                margin-bottom: 1rem;
+              }
+
+              .speaker-card__name {
+                margin: 0;
+                font-size: 24px;
+                font-weight: 700;
+                line-height: 24px;
+                text-align: center;
+                margin-bottom: 20px;
+              }
+
+              .speaker-card__designation {
+                margin: 0;
+                font-size: 18px;
+                font-weight: 600;
+                line-height: 18px;
+                text-align: center;
+                margin-bottom: 5px;
+              }
+
+              .speaker-card__company {
+                margin: 0;
+                color: #6b6b6b;
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 16px;
+                text-align: center;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .speaker-modal {
+    position: relative;
+    display: none;
+    padding: 36px 30px;
+    border-radius: 10px;
+    box-shadow: 4px 10px 24px 0 #0000001a;
+
+    .speaker-modal__content {
+      display: flex;
+      align-items: center;
+      column-gap: 20px;
+
+      .speaker-modal__header {
+        display: flex;
+        width: 50%;
+        border-right: 1px solid;
+
+        .speaker-modal__image {
+          width: 150px;
+          height: 150px;
+        }
+
+        .info {
+          display: flex;
+          flex-direction: column;
+          margin: 1rem 20px 1rem 1rem;
+
+          .speaker-modal__info {
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: column;
+            font-family: Metropolis;
+
+            p {
+              margin: 0;
+            }
+
+            .speaker-modal__name {
+              font-size: 24px;
+              font-weight: 700;
+              line-height: 24px;
+              margin-bottom: 15px;
+            }
+
+            .speaker-modal__designation {
+              font-size: 18px;
+              font-weight: 600;
+              line-height: 18px;
+              margin-bottom: 5px;
+            }
+
+            .speaker-modal__company {
+              color: #6b6b6b;
+              font-size: 16px;
+              font-weight: 400;
+              line-height: 16px;
+              margin-bottom: 16px;
+            }
+          }
+
+          .social {
+            display: flex;
+            align-items: center;
+            column-gap: 18px;
+          }
+        }
+      }
+
+      .speaker-modal__body {
+        width: 49%;
+      }
+    }
+
+    .speaker-modal__close {
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 14px;
+      border: none;
+      font-size: 20px;
+      background-color: transparent;
+      cursor: pointer;
+    }
+  }
+
+  .speakers-block__footer {
+    p {
+      display: none;
+    }
+
+    .speakers-block__footer-content {
+      position: relative;
+
+      .speakers-block__footer-text {
+        display: none;
+      }
+
+      .field--name-field-cta {
+        width: fit-content;
+        margin: auto;
+        margin-top: 85px;
+
+        a {
+          width: fit-content;
+          margin: auto;
+          padding: 20px 66px;
+          color: #fff;
+          font-size: 20px;
+          font-weight: 600;
+          line-height: 20px;
+          background-color: #003fb4;
+          border-radius: 10px;
+          text-decoration: none;
+        }
+      }
+
+      .field--name-field-footer-text {
+        position: absolute;
+        top: 15px;
+        left: 80px;
+        width: 140px;
+        margin: 0;
+        font-family: Work Sans;
+        font-size: 18px;
+        font-weight: 400;
+      }
+
+      img {
+        position: absolute;
+        bottom: -90px;
+        left: 180px;
+        width: 150px;
+        height: 50px;
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+uuid: afc95487-e4da-4a7c-a5a8-86a90b7b22e5
+langcode: en
+status: true
+dependencies: {  }
+id: speakers
+block_id: 'inline_block:speakers'
+category: speaker
+label: Speakers
+image_path: ''
+image_alt: ''
+weight: null

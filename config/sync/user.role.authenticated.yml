@@ -1,0 +1,35 @@
+uuid: 9a74cae4-767f-44d0-a8b0-001d91e29e53
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_display.node.page.default
+    - node.type.page
+  module:
+    - block
+    - layout_builder
+    - media
+    - node
+    - system
+_core:
+  default_config_hash: dJ0L2DNSj5q6XVZAGsuVDpJTh5UeYkIPwKrUOOpr8YI
+id: authenticated
+label: 'Authenticated user'
+weight: 1
+is_admin: false
+permissions:
+  - 'access content'
+  - 'administer blocks'
+  - 'configure all page node layout overrides'
+  - 'configure any layout'
+  - 'configure editable page node layout overrides'
+  - 'create and edit custom blocks'
+  - 'create page content'
+  - 'delete any page content'
+  - 'delete own page content'
+  - 'delete page revisions'
+  - 'edit any page content'
+  - 'edit own page content'
+  - 'revert page revisions'
+  - 'view media'
+  - 'view page revisions'

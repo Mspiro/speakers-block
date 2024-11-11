@@ -1,0 +1,19 @@
+uuid: c6495d70-f9d8-4b46-b7dc-50d8ebf61528
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.speakers
+    - field.storage.block_content.field_footer_text
+id: block_content.speakers.field_footer_text
+field_name: field_footer_text
+entity_type: block_content
+bundle: speakers
+label: 'Footer Text'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

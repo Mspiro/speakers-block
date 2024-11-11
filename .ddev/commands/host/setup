@@ -1,0 +1,17 @@
+#!/bin/bash
+set -e
+
+bold=$(tput bold)
+normal=$(tput sgr0)
+echo "${bold}Downloading composer dependencies.${normal}"
+ddev composer install -v
+echo ""
+echo "${bold}Installing the site with Standard Installation Profile.${normal}"
+ddev drush site:install --yes --account-pass admin --site-name="GSCM" minimal --db-url=mysql://db:db@db:3306/db
+echo ""
+echo "${bold}Importing configurations.${normal}"
+ddev drush config:import --yes
+echo ""
+echo "${bold}Launching the site as an Admin..${normal}"
+ULI="$(ddev drush uli)"
+ddev launch "${ULI}"

@@ -1,0 +1,180 @@
+{
+    "name": "specbee/drupal-fe-assessment",
+    "description": "An assessment project for Drupal Frontend",
+    "license": "GPL-2.0-or-later",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Specbee",
+            "email": "developer@specbee.com",
+            "homepage": "https://specbee.com",
+            "role": "maintainer"
+        }
+    ],
+    "require": {
+        "php": ">=8.2",
+        "composer/installers": "^2.0",
+        "cweagans/composer-patches": "^1.7",
+        "drupal/admin_toolbar": "^3.5",
+        "drupal/config_sync_without_site_uuid": "^1.0@beta",
+        "drupal/core-composer-scaffold": "^10.3",
+        "drupal/core-project-message": "^10.3",
+        "drupal/core-recommended": "^10.3",
+        "drupal/dotenv": "^1.2",
+        "drupal/gin": "^3.0@RC",
+        "drupal/gin_lb": "^1.0@RC",
+        "drupal/gin_login": "^2.1",
+        "drupal/gin_toolbar": "^1.0@RC",
+        "drupal/layout_builder_browser": "^1.7",
+        "drupal/paragraphs": "^1.18",
+        "drush/drush": "^12.5",
+        "ewcomposer/unpack": "dev-master",
+        "oomphinc/composer-installers-extender": "^2.0"
+    },
+    "require-dev": {
+        "specbee/drupal-quality-checker": "^1.3"
+    },
+    "conflict": {
+        "drupal/drupal": "*"
+    },
+    "repositories": {
+        "drupal": {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        },
+        "assets": {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        },
+        "drupal-unpack": {
+            "type": "vcs",
+            "url": "https://gitlab.ewdev.ca/yonas.legesse/drupal-recipe-unpack.git"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "classmap": [
+            "scripts/composer/ScriptHandler.php"
+        ],
+        "files": [
+            "load.environment.php"
+        ]
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true,
+            "cweagans/composer-patches": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "drupal/core-composer-scaffold": true,
+            "drupal/core-project-message": true,
+            "ergebnis/composer-normalize": true,
+            "ewcomposer/unpack": true,
+            "oomphinc/composer-installers-extender": true,
+            "php-http/discovery": true,
+            "phpro/grumphp-shim": true,
+            "phpstan/extension-installer": true
+        },
+        "platform": {
+            "php": "8.2"
+        },
+        "sort-packages": true
+    },
+    "extra": {
+        "composer-exit-on-patch-failure": true,
+        "drupal-core-project-message": {
+            "post-create-project-cmd-message": [
+                "<bg=blue;fg=white>                                                         </>",
+                "<bg=blue;fg=white>  Congratulations, you\u2019ve installed the Drupal codebase  </>",
+                "<bg=blue;fg=white>  from the specbee/drupal-recommended-starterkit template!          </>",
+                "<bg=blue;fg=white>                                                         </>",
+                "",
+                "<bg=yellow;fg=black>Next steps</>:",
+                "  * Install the site: https://github.com/SpecbeeLabs/drupal-recommended-starterkit/?tab=readme-ov-file#installation",
+                "  * Adding Packages: https://github.com/SpecbeeLabs/drupal-recommended-starterkit/?tab=readme-ov-file#adding-packages",
+                "  * Using GrumPHP: https://github.com/SpecbeeLabs/drupal-recommended-starterkit/?tab=readme-ov-file#using-grumphp",
+                "  * Using DotEnv: https://github.com/SpecbeeLabs/drupal-recommended-starterkit/?tab=readme-ov-file#using-dotenv"
+            ]
+        },
+        "drupal-scaffold": {
+            "locations": {
+                "web-root": "web/"
+            }
+        },
+        "installer-paths": {
+            "web/core": [
+                "type:drupal-core"
+            ],
+            "web/libraries/{$name}": [
+                "type:drupal-library",
+                "type:bower-asset",
+                "type:npm-asset"
+            ],
+            "web/modules/contrib/{$name}": [
+                "type:drupal-module"
+            ],
+            "web/profiles/contrib/{$name}": [
+                "type:drupal-profile"
+            ],
+            "web/recipes/{$name}": [
+                "type:drupal-recipe"
+            ],
+            "web/themes/contrib/{$name}": [
+                "type:drupal-theme"
+            ],
+            "drush/Commands/contrib/{$name}": [
+                "type:drupal-drush"
+            ],
+            "web/modules/custom/{$name}": [
+                "type:drupal-custom-module"
+            ],
+            "web/profiles/custom/{$name}": [
+                "type:drupal-custom-profile"
+            ],
+            "web/themes/custom/{$name}": [
+                "type:drupal-custom-theme"
+            ]
+        },
+        "installer-types": [
+            "bower-asset",
+            "npm-asset",
+            "drupal-recipe"
+        ],
+        "patchLevel": {
+            "drupal/core": "-p2"
+        },
+        "patches-file": "composer.patches.json"
+    },
+    "scripts": {
+        "pre-install-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
+        ],
+        "post-install-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::createDotEnvFile",
+            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
+        ],
+        "pre-update-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
+        ],
+        "post-update-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::createDotEnvFile",
+            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
+        ],
+        "post-create-project-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::createDotEnvFile",
+            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
+            "DrupalProject\\composer\\ScriptHandler::createLocalSettingsFile"
+        ],
+        "nuke": [
+            "rm -rf web/modules/contrib",
+            "rm -rf web/themes/contrib",
+            "rm -rf web/profiles/contrib",
+            "rm -rf web/libraries",
+            "rm -rf web/recipes",
+            "rm -rf vendor"
+        ],
+        "setup:local": [
+            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
+        ]
+    }
+}

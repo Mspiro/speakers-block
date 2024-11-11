@@ -1,0 +1,44 @@
+name: Speakers Block
+description: A component to display all speaker.
+dependencies:
+  - core/drupal
+  - drupal:components
+  - demo:speakers-block
+css:
+  component:
+    components/speakers-block/speakers-block.css: {}
+
+props:
+  type: object
+  required:
+    - title
+    - description
+    - speaker
+    - footertext
+    - cta
+  properties:
+    title:
+      type: string
+      title: Title
+      description: Title of the block.
+    description:
+      type: string
+      title: Description
+      description: Description of the block.
+    speaker:
+      type: string
+      title: Spekers
+      description: All speakers card.
+    footertext:
+      type: string
+      title: Footer Text
+      description: Block footer text.
+    cta:
+      type: string
+      title: Footer CAT
+      description: View event button.
+    arrow_image:
+      type: string
+      title: Arrow Image
+      description: Arrow image path
+      default: '/themes/custom/demo/components/speakers-block/img/arrow.svg'

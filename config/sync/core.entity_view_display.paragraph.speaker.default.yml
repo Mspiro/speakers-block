@@ -1,0 +1,99 @@
+uuid: d8487909-245d-491c-97d3-9635fcea10c8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.speaker.field_bio
+    - field.field.paragraph.speaker.field_designation
+    - field.field.paragraph.speaker.field_name
+    - field.field.paragraph.speaker.field_organization
+    - field.field.paragraph.speaker.field_photo
+    - field.field.paragraph.speaker.field_social_drupal
+    - field.field.paragraph.speaker.field_social_linkedin
+    - field.field.paragraph.speaker.field_social_x
+    - paragraphs.paragraphs_type.speaker
+  module:
+    - link
+    - text
+id: paragraph.speaker.default
+targetEntityType: paragraph
+bundle: speaker
+mode: default
+content:
+  field_bio:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_designation:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_name:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_organization:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_photo:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_social_drupal:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_social_linkedin:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_social_x:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 5
+    region: content
+hidden: {  }
