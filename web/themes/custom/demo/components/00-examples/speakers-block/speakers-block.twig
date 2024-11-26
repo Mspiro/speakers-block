@@ -14,7 +14,6 @@
   </div>
   {% endif %}
 
-  {# Modal content remains the same #}
   <div class="speaker-modal" id="speaker-modal">
     <div class="speaker-modal__content">
 
@@ -31,12 +30,9 @@
           </div>
 
           <div class="social">
-            <span><a id="social-drupal" href=""><img
-                  src="/themes/custom/demo/components/00-examples/speakers-block/img/drupal.svg" alt=""></a></span>
-            <span><a id="social-x" href=""><img
-                  src="/themes/custom/demo/components/00-examples/speakers-block/img/x.svg" alt=""></a></span>
-            <span><a id="social-linkedin" href=""><img
-                  src="/themes/custom/demo/components/00-examples/speakers-block/img/linkedin.svg" alt=""></a></span>
+            <span><a id="social-drupal" href=""><img src="/themes/custom/demo/components/00-examples/speakers-block/img/drupal.svg" alt=""></a></span>
+            <span><a id="social-x" href=""><img src="/themes/custom/demo/components/00-examples/speakers-block/img/x.svg" alt=""></a></span>
+            <span><a id="social-linkedin" href=""><img src="/themes/custom/demo/components/00-examples/speakers-block/img/linkedin.svg" alt=""></a></span>
           </div>
         </div>
       </div>
@@ -59,7 +55,9 @@
         {% set speaker_data = item['#paragraph'] %}
         {% if speaker_data %}
         {% set unique_id = 'speaker-' ~ loop.index %}
-        {# Get image URL from media reference #}
+
+        {# Fetching image URL from media reference #}
+
         {% set image_url = '' %}
         {% if speaker_data.field_photo.entity %}
         {% set media = speaker_data.field_photo.entity %}
@@ -70,13 +68,7 @@
 
         {# {{ dump(speaker_data.field_social_drupal.value[0].uri) }} #}
         <div class="splide__slide">
-          <div class="speaker-card" id="{{ unique_id }}" data-name="{{ speaker_data.field_name.value }}"
-            data-designation="{{ speaker_data.field_designation.value }}"
-            data-organization="{{ speaker_data.field_organization.value }}"
-            data-bio="{{ speaker_data.field_bio.value }}" data-image="{{ image_url }}"
-            data-social-drupal="{{ speaker_data.field_social_drupal.value[0].uri|replace({'internal:': '', 'public:': ''}) }}"
-            data-social-x=" {{ speaker_data.field_social_drupal.value[0].uri|replace({'internal:': '', 'public:': ''}) }}"
-            data-social-linkedin="{{ speaker_data.field_social_drupal.value[0].uri|replace({'internal:': '', 'public:': ''}) }}">
+          <div class="speaker-card" id="{{ unique_id }}" data-name="{{ speaker_data.field_name.value }}" data-designation="{{ speaker_data.field_designation.value }}" data-organization="{{ speaker_data.field_organization.value }}" data-bio="{{ speaker_data.field_bio.value }}" data-image="{{ image_url }}" data-social-drupal="{{ speaker_data.field_social_drupal.value[0].uri|replace({'internal:': '', 'public:': ''}) }}" data-social-x=" {{ speaker_data.field_social_drupal.value[0].uri|replace({'internal:': '', 'public:': ''}) }}" data-social-linkedin="{{ speaker_data.field_social_drupal.value[0].uri|replace({'internal:': '', 'public:': ''}) }}">
 
             <div class="speaker-card__info">
               <div class="speaker-card__photo">
@@ -102,15 +94,14 @@
     <div class="speakers-block__footer-content">
       {% if footertext %}
       <p class="speakers-block__footer-text"> {{- footertext -}}
-        <img src="/themes/custom/demo/components/00-examples/speakers-block/img/arrow.svg" alt="Arrow"
-          class="speakers-block__arrow">
-      </p> 
+        <img src="/themes/custom/demo/components/00-examples/speakers-block/img/arrow.svg" alt="Arrow" class="speakers-block__arrow">
+      </p>
       {% endif %}
       {% if cta %}
-        {{ cta }}
+      {{ cta }}
       {% endif %}
     </div>
-    
+
   </div>
   {% endif %}
 </div>
